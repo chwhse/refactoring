@@ -32,7 +32,11 @@ public class TestMain {
 		c2.addRentals(r6);
 		
 		System.out.println(c1.statement());
+		System.out.println("========================================");
 		System.out.println(c2.statement());
+		
+		
+		
 	}
 
 }
