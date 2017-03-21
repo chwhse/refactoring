@@ -2,7 +2,9 @@ package refactoring.dto;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import refactoring.statement.HtmlStatement;
+import refactoring.statement.Statement;
 import refactoring.statement.TextStatement;
 
 public class Customer {
@@ -27,11 +29,13 @@ public class Customer {
 	}
 
 	public String htmlStatement(){
-		return new HtmlStatement().value(this);
+		Statement stmt = new HtmlStatement();
+		return stmt.value(this);
 	}
 	
 	public String statement(){
-		return new TextStatement().value(this);
+		Statement stmt = new TextStatement();
+		return stmt.value(this);
 	}
 
 	public int getTotalfrequentRanterPoints() {
