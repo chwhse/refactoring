@@ -7,7 +7,6 @@ public class Customer {
 	private String name;
 	private List<Rental> rentals = new ArrayList<>();
 	public Customer(String name) {
-		super();
 		this.name = name;
 	}
 	
@@ -25,16 +24,15 @@ public class Customer {
 		sb.append(getName()+"고객님의 대여기록 \n");
 		
 		for(Rental each:rentals){
-			double thisAmount = amountFor(each);	
 			
 			frequentRenterPoints++;
 			if(each.getMovie().getPriceCode()==Movie.NEW_RELEASE && each.getDaysRented() > 1){
 				frequentRenterPoints++;
 			}
 			
-			sb.append(String.format("\t%s \t %s%n", each.getMovie().getTitle(), thisAmount));
+			sb.append(String.format("\t%s \t %s%n", each.getMovie().getTitle(), amountFor(each)));
 			
-			totalAmount += thisAmount;
+			totalAmount += amountFor(each);
 		}	// for loop
 		
 		sb.append(String.format("누적 대여료 : %s%n적립 포인트: %s%n", totalAmount, frequentRenterPoints));
