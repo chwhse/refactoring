@@ -30,19 +30,14 @@ public class Customer {
 				frequentRenterPoints++;
 			}
 			
-			sb.append(String.format("\t%s \t %s%n", each.getMovie().getTitle(), amountFor(each)));
+			sb.append(String.format("\t%s \t %s%n", each.getMovie().getTitle(), each.getCharge()));
 			
-			totalAmount += amountFor(each);
+			totalAmount += each.getCharge();
 		}	// for loop
 		
 		sb.append(String.format("누적 대여료 : %s%n적립 포인트: %s%n", totalAmount, frequentRenterPoints));
 		
 		return sb.toString();
-	}
-	
-	private double amountFor(Rental aRental){
-		return aRental.getCharge();
-		
 	}
 	
 }
